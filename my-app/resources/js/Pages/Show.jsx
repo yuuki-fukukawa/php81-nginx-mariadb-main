@@ -1,6 +1,13 @@
-import { Link } from '@inertiajs/react'
+import { Link, router } from '@inertiajs/react'
 
 const Show = ({ post }) => {
+
+  const handleSubmit = (e, id) => {
+    console.log(id)
+    e.preventDefault();
+    router.delete(`/post/delete/${id}`)
+  }
+
   return (
     <div className="grid grid-cols-1 gap-4 my-4">
       <div className="overflow-hidden rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto shadow-md">
@@ -27,20 +34,7 @@ const Show = ({ post }) => {
 
         <div className="justify-self-center">
           <form
-            action={`/post/${post.id}`} // ← 削除ルート
-            method="POST"
-            onSubmit={(e) => {
-              e.preventDefault();
-              fetch(`/post/${post.id}`, {
-                method: 'DELETE',
-                headers: {
-                  'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                  'Content-Type': 'application/json',
-                },
-              }).then(() => {
-                window.location.href = '/';
-              });
-            }}
+            onSubmit={(e) => handleSubmit(e, post.id)} // ← 削除ルート
           >
             <button
               type="submit"

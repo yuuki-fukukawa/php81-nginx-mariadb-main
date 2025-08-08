@@ -42,7 +42,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         return Inertia::render('Show', [
-            'post' =>$post
+            'post' => $post ?? (object) ['id' => null, 'title' => '', 'content' => ''],
         ]);
     }
 
@@ -75,6 +75,7 @@ class PostController extends Controller
     public function destroy(int $id)
     {
         $post = new Post();
+        $post = Post::findOrFail($id);
         $result = $post->deletePost($id);
         return redirect()->route('posts.index');
     }

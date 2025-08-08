@@ -14,7 +14,7 @@ const Welcome = ({ posts }) => {
         <Link href="/post/create" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full cursor-pointer">新規投稿</Link>
         </div>
         {posts.map((post) => (
-            <div className="overflow-hidden rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto shadow-md">
+            <div key={post.id} className="overflow-hidden rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto shadow-md">
                 {post.id}
                 <Link href={`/post/${post.id}`} className="w-full block h-full">
                     <img alt="blog photo" src="https://picsum.photos/200" className="max-h-40 w-full"/>

@@ -54,7 +54,7 @@ Route::post('/post/update',
 
 Route::delete('/post/delete/{post}',
 [PostController::class, 'destroy']
-)->name('post.delete');
+)->name('post.destroy');
 
 /*Route::get('/', function() {
     return Inertia::render('Welcome');

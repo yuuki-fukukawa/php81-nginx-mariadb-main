@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>@yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- ViteのCSSファイルを読み込む -->
     @vite('resources/css/app.css')
 </head>
