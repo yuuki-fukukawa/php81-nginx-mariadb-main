@@ -1,4 +1,3 @@
-import Todo from '../components/Todo'
 import { Link } from '@inertiajs/react'
 
 const Show = ({ post }) => {
@@ -20,7 +19,7 @@ const Show = ({ post }) => {
         <div className="justify-self-center mb-8">
           <Link
             className="text-green-700 hover:text-white hover:bg-green-700 rounded w-36 text-center py-2 px-4 border"
-            href={`/post/${post.id}/edit`} // ← 編集リンク
+            href={`/post/edit/${post.id}`} // ← 編集リンク
           >
             編集する
           </Link>
